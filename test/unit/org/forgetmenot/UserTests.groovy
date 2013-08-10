@@ -11,7 +11,8 @@ import org.junit.*
 @TestFor(User)
 class UserTests {
 
-    void testSomething() {
-       fail "Implement me"
+ void testSomething() {
+       Task testTask = new Task(description: "this is as test description")
+	   assertEquals "this is as test description",testTask.description
     }
 }

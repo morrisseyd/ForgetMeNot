@@ -4,6 +4,7 @@ package forgetmenot
 
 import grails.test.mixin.*
 
+import org.forgetmenot.Task
 import org.forgetmenot.TaskController;
 import org.junit.*
 
@@ -14,6 +15,7 @@ import org.junit.*
 class TaskControllerTests {
 
     void testSomething() {
-       fail "Implement me"
+       Task testTask = new Task(description: "this is as test description")
+	   assertEquals "this is as test description",testTask.description
     }
 }

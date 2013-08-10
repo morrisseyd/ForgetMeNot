@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" hostname="LapVos13" id="0" name="TaskControllerTests" package="forgetmenot" tests="1" time="0.254" timestamp="2013-08-10T08:33:15">
+      <properties />
+
+      <testcase classname="forgetmenot.TaskControllerTests" name="testSomething" time="0.173" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="LapVos13" id="1" name="UserTests" package="org.forgetmenot" tests="1" time="0.069" timestamp="2013-08-10T08:33:15">
+      <properties />
+
+      <testcase classname="org.forgetmenot.UserTests" name="testSomething" time="0.069" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+</testsuites>
