@@ -4,9 +4,10 @@ package forgetmenot
 
 import grails.test.mixin.*
 
-import org.forgetmenot.Task
-import org.forgetmenot.TaskController;
+import com.forgetmenot.Task
 import org.junit.*
+
+import com.forgetmenot.TaskController;
 
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions

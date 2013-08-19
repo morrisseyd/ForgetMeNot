@@ -3,7 +3,10 @@ package org.forgetmenot
 
 
 import grails.test.mixin.*
+
 import org.junit.*
+import com.forgetmenot.Task;
+import com.forgetmenot.security.User;
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions

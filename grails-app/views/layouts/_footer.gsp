@@ -8,18 +8,6 @@
 			    		<i class="icon-home"></i>
 						<a href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
 					</li>
-					<li>
-			    		<i class="icon-eye-open"></i>
-						<a href="${createLink(uri: '/')}"><g:message code="default.tour.label"/></a>
-					</li>
-					<li>
-			    		<i class="icon-money"></i>
-						<a href="${createLink(uri: '/')}"><g:message code="default.pricing.label"/></a>
-					</li>
-					<li>
-			    		<i class="icon-comments"></i>
-						<a href="${createLink(uri: '/')}"><g:message code="default.faq.label"/></a>
-					</li>
 				</ul>
 			</div>
 			<div class="span2">

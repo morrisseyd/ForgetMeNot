@@ -11,6 +11,8 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
+import grails.plugins.springsecurity.SecurityConfigType
+
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false
@@ -90,9 +92,28 @@ log4j = {
            'net.sf.ehcache.hibernate'
 }
 
-// Added by the Spring Security Core plugin:
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'org.forgetmenot.SecUser'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'org.forgetmenot.SecUserSecRole'
-grails.plugins.springsecurity.authority.className = 'org.forgetmenot.SecRole'
+//****************START******************
+// Added by DM 14th Aug 2013
+//***************************************
+grails.plugins.springsecurity.securityConfigType = SecurityConfigType.InterceptUrlMap
 
+grails.plugins.springsecurity.interceptUrlMap = [
+	'/login/**':     ['IS_AUTHENTICATED_ANONYMOUSLY'],
+	'/**':			['ROLE_USER','IS_AUTHENTICATED_FULLY'],
+	'/forgetmenot/**':['ROLE_USER','IS_AUTHENTICATED_FULLY'],
+	'/js/**':        ['IS_AUTHENTICATED_ANONYMOUSLY'],
+	'/css/**':       ['IS_AUTHENTICATED_ANONYMOUSLY'],
+	'/images/**':    ['IS_AUTHENTICATED_ANONYMOUSLY'],
+	'/*':            ['IS_AUTHENTICATED_ANONYMOUSLY'],
+	'/logout/**':    ['IS_AUTHENTICATED_ANONYMOUSLY']
+ ]
+
+//****************END******************
+ // End by DM 14th Aug 2013
+ //***************************************
+ 
 grails.config.defaults.locations = [KickstartResources]
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.forgetmenot.security.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.forgetmenot.security.UserRole'
+grails.plugins.springsecurity.authority.className = 'com.forgetmenot.security.Role'

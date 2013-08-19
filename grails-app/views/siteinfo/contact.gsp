@@ -9,9 +9,8 @@
 
 	<section id="intro">
 		<p class="lead">
-			For ongoing information about ${meta(name:'app.name')}, please read our company 
-			<a href="http://wordpress.com/signup/">blog</a>. Also, feel free to
-			contact us with service questions, partnership proposals, or media
+			For more information about ${meta(name:'app.name')} and David Morrissey, please read my <a href="ie.linkedin.com/in/davidmorrissey/">Linkedin profile</a>. 
+			Also, feel free to contact me with  questions, proposals, or job
 			inquiries.
 		</p>
 	</section>
@@ -22,8 +21,9 @@
 			<h1><g:message code="default.contact.address"/></h1>
 				<address>
 					<strong>${meta(name:'app.name')}, Inc.</strong><br>
-					 123 Future Ave<br>
-					 San Francisco, CA 94107<br>
+					 555 Future Ave<br>
+					 Co. Kildare<br>
+					 Ireland<br>
 					 <br>
 				</address>
 				<address>
@@ -40,7 +40,7 @@
 							<strong><abbr title="Fax">Fax</abbr></strong>
 						</span>
 						<span class="span3">
-					    +49 (0) 72 27 - 95 35 - 605
+					    +353 (0) 72 27 - 95 35 - 605
 						</span>
 					</div>
 				</address>
@@ -57,9 +57,7 @@
 			</div>
 			
 			<div class="span8">
-				<iframe width="100%" scrolling="no" height="300" frameborder="0" 
-					src="http://maps.google.ca/maps?f=q&source=s_q&hl=en&geocode=&q=123+Future+Ave,San+Francisco,+CA+94107&ie=UTF8&hq=&hnear=Downtown,San+Francisco,+CA+94107&z=12&iwloc=near&output=embed"
-		 			marginwidth="0" marginheight="0"></iframe>
+				<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Bog+of+Allen,+Kildare,+Ireland&amp;aq=0&amp;oq=bog+of+all&amp;sll=37.0625,-95.677068&amp;sspn=39.371738,79.013672&amp;t=h&amp;ie=UTF8&amp;hq=Bog+of+Allen,&amp;hnear=Kildare,+County+Kildare,+Ireland&amp;z=11&amp;iwloc=A&amp;cid=16725247796012626955&amp;ll=53.248529,-6.996476&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Bog+of+Allen,+Kildare,+Ireland&amp;aq=0&amp;oq=bog+of+all&amp;sll=37.0625,-95.677068&amp;sspn=39.371738,79.013672&amp;t=h&amp;ie=UTF8&amp;hq=Bog+of+Allen,&amp;hnear=Kildare,+County+Kildare,+Ireland&amp;z=11&amp;iwloc=A&amp;cid=16725247796012626955&amp;ll=53.248529,-6.996476" style="color:#0000FF;text-align:left">View Larger Map</a></small>
 			</div>
 		</div>
 	</section>

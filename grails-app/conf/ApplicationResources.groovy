@@ -3,3 +3,4 @@ modules = {
         resource url:'js/application.js'
     }
 }
+
