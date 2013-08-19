@@ -9,19 +9,12 @@
 
 	<section id="intro" class="first">
 		<h1>Welcome to ForgetMeNot</h1>
+
 		<p>
-			Testing.
-		</p>
-		<h2>Introduction</h2>
-		<p>
-			Kickstart is an extension for Grails in order to start your
-			project with a good looking frontend. It is intended to be used in
-			rapid application scenarios such as a Startup Weekend or a
-			prototyping session with a customer. This plugin provides adapted
-			scaffolding templates for standard CRUD pages using the Bootstrap web
-			page template by Twitter. Additionally, Kickstart includes some
-			general GSPs pages (e.g., about.gsp), a minimal logging/orientation
-			Filter, and a language switcher.
+			ForgetMeNot is a small application for managing tasks. It allows the user to add, edit,
+			and delete tasks basically covering all CRUD operations. ForgetMeNot is built using Grails v. 2.2.4 
+			and uses Spring Security for RBAC functionality. It allows uses the Bootstrap, from Twitter which is implemented
+			via the kickstart plugin. Bootstrap uses responsive CSS to alter the look and feel based on the access device.
 		</p>
 		<g:link class="btn btn-large btn-primary" controller="nextSteps">Next Steps</g:link>
 	</section>

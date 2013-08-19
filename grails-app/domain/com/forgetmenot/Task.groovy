@@ -18,7 +18,7 @@ class Task {
 		
     static constraints = {
 		//Cannot enter a blank description
-		description blank: false, unique: true
+		description blank: false, unique: true, maxSize: 300
 		//Needs a due date
 		due blank:false, deafult:new Date()
 		//Status - started, not started, on hold

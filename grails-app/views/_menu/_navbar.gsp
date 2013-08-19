@@ -16,9 +16,7 @@
 
        		<div class="nav-collapse">
        		
-       		
-
-	  			<div class="pull-left">
+       			<div class="pull-left">
 					<%--Left-side entries--%>
 	  			</div>
 

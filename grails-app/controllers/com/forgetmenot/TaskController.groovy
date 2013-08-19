@@ -19,9 +19,11 @@ class TaskController {
 	//Used for the create View
 	def create = {
 		
-		//The 
+		//The vlaues of the dropdown list are located within the resources.groovy
+		//This central location allows us to update the values so they can be
+		//used throughout the application.
 		[taskStatusValues: taskStatusValues]
-		println "*************** taskStatusValues  is ...${taskStatusValues}"
+		
 	}
 	
 	
@@ -37,7 +39,6 @@ class TaskController {
 	
 	//Override Delete Scaffold
 	def delete = {
-		println "The id is ...${params.taskid}"
 		def taskInstance = Task.findById(params.taskid.toLong())
 		if (taskInstance) {
 			try {

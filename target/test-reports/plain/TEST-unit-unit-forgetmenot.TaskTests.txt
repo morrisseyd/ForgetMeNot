@@ -1,0 +1,29 @@
+Testsuite: forgetmenot.TaskTests
+Tests run: 5, Failures: 0, Errors: 1, Time elapsed: 2.726 sec
+------------- Standard Output ---------------
+--Output from testSuccess--
+--Output from testDueBlank--
+--Output from testDescriptionBlank--
+--Output from testDescriptionExceedMaxSize--
+--Output from testDescriptionUnique--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from testSuccess--
+--Output from testDueBlank--
+--Output from testDescriptionBlank--
+--Output from testDescriptionExceedMaxSize--
+--Output from testDescriptionUnique--
+------------- ---------------- ---------------
+
+Testcase: testSuccess took 2.314 sec
+Testcase: testDueBlank took 0.158 sec
+	Caused an ERROR
+No signature of method: com.forgetmenot.Task.setDue() is applicable for argument types: (java.lang.String) values: []
+Possible solutions: setDue(java.util.Date), getDue(), setId(java.lang.Long), setUser(com.forgetmenot.security.User), getAt(java.lang.String), delete()
+groovy.lang.MissingMethodException: No signature of method: com.forgetmenot.Task.setDue() is applicable for argument types: (java.lang.String) values: []
+Possible solutions: setDue(java.util.Date), getDue(), setId(java.lang.Long), setUser(com.forgetmenot.security.User), getAt(java.lang.String), delete()
+	at forgetmenot.TaskTests.testDueBlank(TaskTests.groovy:61)
+
+Testcase: testDescriptionBlank took 0.077 sec
+Testcase: testDescriptionExceedMaxSize took 0.038 sec
+Testcase: testDescriptionUnique took 0.072 sec
