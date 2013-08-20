@@ -1,8 +1,14 @@
 package com.forgetmenot
 
 import grails.plugins.springsecurity.SpringSecurityService;
-
 import com.forgetmenot.security.User;
+import com.forgetmenot.support.GroovySupport
+
+/**
+ * Task object.
+ * @author David.Morrissey
+ *
+ */
 
 class Task {
 	String description
@@ -11,11 +17,15 @@ class Task {
 	Date creationDate
 	
 	
-	
-	//Setup relationship with User
+	/**
+	 * Setup relationship with User 
+	 */
 	User user
 	static belongsTo = [user :User]
-		
+	
+	/**
+	 * Setup constraints
+	 */
     static constraints = {
 		//Cannot enter a blank description
 		description blank: false, unique: true, maxSize: 300
@@ -25,17 +35,15 @@ class Task {
 		status(inList: ["Started", "Not Started", "On Hold"])
 		
     }
-	
+
+	/**
+	 * Returns a list of tasks for displaying on the task list screen
+	 * @param User the currently logged in user
+	 * @returns List a list of tasks belonging to the user
+	 */
 	public static List getTaskListForCurrentUser(User uName) {
-		
 		def List tasks
-				
-		//System.out.println("Current User is ${uName}.....")
-		
-		tasks = Task.findAllByUser(uName)
-		
-		//System.out.println("Result of getTaskListForCurrentUser User is ${tasks}.....")
-				
+		tasks = Task.findAllByUser(uName)		
 		return tasks
 	}
 	

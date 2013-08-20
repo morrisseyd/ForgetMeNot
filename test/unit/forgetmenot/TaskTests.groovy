@@ -13,6 +13,7 @@ import com.forgetmenot.security.UserRole;
 
 /**
  * See the API for {@link grails.test.mixin.support.GrailsUnitTestMixin} for usage instructions
+ * Unit tests for testing the Task domain
  */
 @TestMixin(GrailsUnitTestMixin)
 @TestFor(Task)
@@ -24,6 +25,9 @@ class TaskTests {
 	def userRole = new Role(authority: "ROLE_USER")
 	def userChuck = new User(username: "chuck_norris", password: "password", enabled: true)
 	
+	/**
+	 * Creates a String for use in tests
+	 */
 	String veryLongText(){
 		StringBuilder sb = new StringBuilder()
 		while(sb.toString().length() < 500){
@@ -32,12 +36,18 @@ class TaskTests {
 		sb.toString()
 	}
 	
+	/**
+	 * Setup test
+	 */
 	@Before
 	void setUp() {
 		mockForConstraintsTests(Task)
 		mockTask = initMockTask()
 	}
 	
+	/**
+	 * Create Mock task object
+	 */
 	def initMockTask = {
 		mockTask = new Task(
 		description : "This is a test task...........",
@@ -49,7 +59,9 @@ class TaskTests {
 		mockTask
 	}
 	
-	//Test the validations
+	/**
+	* Test the task description isn't blank
+	*/
 	void testDescriptionBlank(){
 		mockTask.setDescription("")
 		assertFalse (mockTask.validate())
@@ -57,7 +69,10 @@ class TaskTests {
 		assertEquals(1,mockTask.errors.getErrorCount())
 	}
     
-
+	/**
+	 * Test the task description doesn't exceed
+	 * the max size constraint
+	 */
 	void testDescriptionExceedMaxSize(){
 		mockTask.setDescription(veryLongText())
 		assertFalse (mockTask.validate())
@@ -65,6 +80,10 @@ class TaskTests {
 		assertEquals(1,mockTask.errors.getErrorCount())
 	}
 
+	/**
+	 * Test the task description is unique
+	 */
+	
 	void testDescriptionUnique(){
 		
 		// Test task to test uniqueness of description property	
@@ -81,7 +100,9 @@ class TaskTests {
 		assertEquals(1,mockTask.errors.getErrorCount())
 	}
 	
-	
+	/**
+	 * Test overall success
+	 */
 	void testSuccess() {
 		assert (mockTask.validate())
 		assertEquals (0,mockTask.errors.getErrorCount())

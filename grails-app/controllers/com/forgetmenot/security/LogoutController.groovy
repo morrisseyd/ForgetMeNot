@@ -1,3 +1,5 @@
+package com.forgetmenot.security
+
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 
 class LogoutController {

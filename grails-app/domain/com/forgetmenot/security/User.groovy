@@ -1,7 +1,11 @@
 package com.forgetmenot.security
 
 import com.forgetmenot.Task;
-
+/**
+ * Domain class for User
+ * @author David.Morrissey
+ *
+ */
 class User {
 
 	transient springSecurityService
@@ -17,7 +21,7 @@ class User {
 	boolean passwordExpired
 
 	static constraints = {
-		username blank: false, unique: true
+		username blank: false, unique: true, minSize: 4
 		password blank: false
 	}
 

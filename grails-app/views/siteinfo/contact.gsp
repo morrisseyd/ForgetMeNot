@@ -9,7 +9,7 @@
 
 	<section id="intro">
 		<p class="lead">
-			For more information about ${meta(name:'app.name')} and David Morrissey, please read my <a href="ie.linkedin.com/in/davidmorrissey/">Linkedin profile</a>. 
+			For more information about ${meta(name:'app.name')} and David Morrissey, please read my <a href="http://ie.linkedin.com/in/davidmorrissey/">Linkedin profile</a>. 
 			Also, feel free to contact me with  questions, proposals, or job
 			inquiries.
 		</p>

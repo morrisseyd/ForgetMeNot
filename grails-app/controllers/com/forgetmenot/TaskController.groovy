@@ -7,7 +7,11 @@ import com.forgetmenot.security.User;
 import grails.plugins.springsecurity.SpringSecurityService;
 import com.forgetmenot.support.GroovySupport
 
-
+/**
+ * Controller for the Task views.
+ * @author David.Morrissey
+ *
+ */
 class TaskController {
 	
 	def SpringSecurityService springSecurityService
@@ -16,19 +20,21 @@ class TaskController {
 	@Secured(['ROLE_USER','IS_AUTHENTICATED_FULLY'])
 	def scaffold = Task
 	
-	//Used for the create View
-	def create = {
-		
-		//The vlaues of the dropdown list are located within the resources.groovy
-		//This central location allows us to update the values so they can be
-		//used throughout the application.
+	/**
+	 * Creates the view.
+	 * The values of the dropdown list are located within resources.groovy
+	 * This central location allows us to update the values so they can be
+	 * used throughout the application. 
+	 */
+	def create = {		
 		[taskStatusValues: taskStatusValues]
-		
 	}
 	
-	
+	/**
+	 * Gets the currently loggedin user and passes to a method within 
+	 * the domain class to return a list of task for only that user
+	 */
 	def list() {
-		
 		//Get the currently logged in user and only return the list of tasks
 		//for this user.
 		def userLoggedIn = springSecurityService.currentUser		
@@ -37,17 +43,20 @@ class TaskController {
 		userInstanceList: User.list()	]	
 	}
 	
-	//Override Delete Scaffold
+	/**
+	 * Override Delete Action and apply code to delete 
+	 * specific tasks.
+	 */
 	def delete = {
 		def taskInstance = Task.findById(params.taskid.toLong())
 		if (taskInstance) {
 			try {
 				taskInstance.delete(flush: true)
-				flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'Task.label', default: 'Task'), params.id])}"
+				flash.message = "${message(code: 'default.task.deleted.message', args: [message(code: 'Task.label', default: 'Task'), params.id])}"
 				redirect(action: "list")
 			}
 			catch (org.springframework.dao.DataIntegrityViolationException e) {
-				flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'Task.label', default: 'Task'), params.id])}"
+				flash.message = "${message(code: 'default.task.not.deleted.message', args: [message(code: 'Task.label', default: 'Task'), params.id])}"
 				redirect(action: "show", id: params.id)
 			}
 		}
@@ -57,7 +66,10 @@ class TaskController {
 		}
 	}
 	
-	//Override the scaffolded save action 
+	/**
+	 * Override save Action and apply code to delete 
+	 * specific tasks.
+	 */ 
 	def save() {
 		
 		def now = new Date()
@@ -76,11 +88,7 @@ class TaskController {
 			task.user = loggedInUser
 			task.creationDate = now
 			
-			try {
-				task.save()
-			} catch (Exception e) {
-				e.printStackTrace()
-			}
+			task.save()
 		}
 		
 		//Redirect to the listview

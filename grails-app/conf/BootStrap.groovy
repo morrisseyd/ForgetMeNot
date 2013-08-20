@@ -5,10 +5,19 @@ import com.forgetmenot.security.UserRole;
 import com.forgetmenot.security.User
 import com.forgetmenot.Task
 
+/**
+ * Sets up our temp objects within the in-memory DB. The objects are Task, Role, and User 
+ * objects.
+ * @author David.Morrissey
+ */
 
 class BootStrap {
 	
 	def springSecurityService
+	
+	/**
+	 * Initializes Task, UserRole, and User objects. 
+	 */
 	
 	def init =  { servletContext ->
 	

@@ -8,7 +8,8 @@
 <body>
 
 	<section id="intro" class="first">
-		<h1>Welcome to ForgetMeNot</h1>
+		<h1>Welcome to ForgetMeNot <g:img dir="images" file="BlueLogoKnot.png" width="40" height="40"/></h1>
+		
 
 		<p>
 			ForgetMeNot is a small application for managing tasks. It allows the user to add, edit,
@@ -16,7 +17,7 @@
 			and uses Spring Security for RBAC functionality. It allows uses the Bootstrap, from Twitter which is implemented
 			via the kickstart plugin. Bootstrap uses responsive CSS to alter the look and feel based on the access device.
 		</p>
-		<g:link class="btn btn-large btn-primary" controller="nextSteps">Next Steps</g:link>
+		<g:link class="btn btn-large btn-primary" controller="task">Create Tasks</g:link>
 	</section>
 
 	<section id="info3">
