@@ -67,7 +67,7 @@ environments {
     }
     production {
        grails.logging.jul.usebridge = false
-       grails.serverURL = "http://localhost:9090"
+       grails.serverURL = "http://forgetmenot.morrisseyd.cloudbees.net"
     }
 }
 
