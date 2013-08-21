@@ -37,7 +37,15 @@ class TaskController {
 	
 	def update = {
 		Task taskInstance = Task.get(params.id)
-		taskInstance.status = params.status
+		//Not the right way to do it but need to fix quickly
+			if(params.status=='OnHold'){
+				taskInstance.status='On Hold'
+			}else if (params.status=='NotStarted'){
+				taskInstance.status='Not Started'
+			}else{
+				taskInstance.status = params.status
+			}
+		taskInstance.done = (taskInstance.status == "Done")?true:false
 		taskInstance.due = Date.parse("d/M/yyyy", params.due)
 		taskInstance.description = params.description
 		taskInstance.save(flush:true)
@@ -112,11 +120,19 @@ class TaskController {
 		log.info "***loggedInUser is: ${loggedInUser}***"
 			
 		if(loggedInUser!=null){
-			
 			log.info "***Setting current user and saving task***"
 			task.user = loggedInUser
 			task.creationDate = now
-			task.status = params.status
+			
+			//Not the right way to do it but need to fix quickly
+			if(params.status=='OnHold'){
+				task.status='On Hold'
+			}else if (params.status=='NotStarted'){
+				task.status='Not Started'
+			}else{
+				task.status = params.status
+			}
+			
 			task.done = (task.status == "Done")?true:false
 			task.due = Date.parse("d/M/yyyy", params.due)
 			task.description = params.description
