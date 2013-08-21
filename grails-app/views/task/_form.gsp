@@ -24,7 +24,7 @@
 						<g:select name="status" optionKey="key" optionValue="value" from="${taskStatusValues.entrySet()}" noSelection="['':'-Choose the task status-']" />
 					</g:if>
 					<g:else>
-						<g:select name="status" from="${['Started', 'Not Started', 'On Hold']}" value="${taskInstance?.status}"noSelection="['':'-Choose the task status-']"/>
+						<g:select name="status" optionKey="key" optionValue="value" from="${taskStatusValues.entrySet()}" value="${taskInstance?.status}" noSelection="['':'-Choose the task status-']"/>
 					</g:else>		
 										
 					<span class="help-inline">${hasErrors(bean: taskInstance, field: 'status', 'error')}</span>

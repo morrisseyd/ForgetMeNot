@@ -15,6 +15,7 @@ class Task {
 	Date due
 	String status
 	Date creationDate
+	Boolean done
 	
 	
 	/**
@@ -32,7 +33,7 @@ class Task {
 		//Needs a due date
 		due blank:false, deafult:new Date()
 		//Status - started, not started, on hold
-		status(inList: ["Started", "Not Started", "On Hold"])
+		status(inList: ["Started", "Not Started", "On Hold", "Done"])
 		
     }
 

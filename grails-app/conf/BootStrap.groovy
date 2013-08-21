@@ -39,18 +39,18 @@ class BootStrap {
 		UserRole.create userTest, userRole
 		
 		//Setup some Tasks for chuck
-		def task1Chuck = new Task(description: "Showdown with Charles Bronsan", creationDate: now, due:now+10, status:"Not Started", user: userChuck).save(failOnError:true)
-		def task2Chuck = new Task(description: "Showdown with Arnie", creationDate: now, due:now+10, status:"Not Started", user: userChuck).save(failOnError:true)
-		def task3Chuck = new Task(description: "Showdown with Sly", creationDate: now, due:now+10, status:"Not Started", user: userChuck).save(failOnError:true)
-		def task4Chuck = new Task(description: "Showdown with Vin", creationDate: now, due:now+10, status:"Not Started", user: userChuck).save(failOnError:true)
+		def task1Chuck = new Task(description: "Showdown with Charles Bronsan", creationDate: now, due:now+10, status:"Done", done:true, user: userChuck).save(failOnError:true)
+		def task2Chuck = new Task(description: "Showdown with Arnie", creationDate: now, due:now+10, status:"Not Started", done:false, user: userChuck).save(failOnError:true)
+		def task3Chuck = new Task(description: "Showdown with Sly", creationDate: now, due:now+10, status:"Done", done:true, user: userChuck).save(failOnError:true)
+		def task4Chuck = new Task(description: "Showdown with Vin", creationDate: now, due:now+10, status:"Not Started", done:false, user: userChuck).save(failOnError:true)
 		//Setup some tasks for Opera
-		def task1Opera = new Task(description: "Showdown with Judge Judy", creationDate: now, due:now+10, status:"Not Started", user: userOpera).save(failOnError:true)
-		def task2Opera = new Task(description: "Showdown with Ellen", creationDate: now, due:now+10, status:"Not Started", user: userOpera).save(failOnError:true)
+		def task1Opera = new Task(description: "Showdown with Judge Judy", creationDate: now, due:now+10, status:"Not Started", done:false, user: userOpera).save(failOnError:true)
+		def task2Opera = new Task(description: "Showdown with Ellen", creationDate: now, due:now+10, status:"Not Started", done:false, user: userOpera).save(failOnError:true)
 		//Setup some tasks for Test
-		def task1Test = new Task(description: "Buy some slinkys", creationDate: now, due:now+10, status:"Not Started", user: userTest).save(failOnError:true)
-		def task2Test = new Task(description: "Put the set list together", creationDate: now+10, due:now, status:"Not Started", user: userTest).save(failOnError:true)
-		def task3Test = new Task(description: "New machinehead", creationDate: now, due:now+10, status:"Not Started", user: userTest).save(failOnError:true)
-		def task4Test = new Task(description: "Buy a new stand", creationDate: now, due:now+10, status:"Not Started", user: userTest).save(failOnError:true)
+		def task1Test = new Task(description: "Buy some slinkys", creationDate: now, due:now+10, status:"Done", done:true, user: userTest).save(failOnError:true)
+		def task2Test = new Task(description: "Put the set list together", creationDate: now+10, due:now, status:"Not Started", done:false, user: userTest).save(failOnError:true)
+		def task3Test = new Task(description: "New machinehead", creationDate: now, due:now+10, status:"Not Started", done:false, user: userTest).save(failOnError:true)
+		def task4Test = new Task(description: "Buy a new stand", creationDate: now, due:now+10, status:"Done", done:true, user: userTest).save(failOnError:true)
 		
 		
 		//Create the relationships

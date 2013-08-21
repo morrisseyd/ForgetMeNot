@@ -7,7 +7,25 @@
 	<meta name="layout" content="kickstart" />
 	<g:set var="entityName" value="${message(code: 'task.label', default: 'Task')}" />
 	<title><g:message code="default.list.label" args="[entityName]" /></title>
+	<g:javascript> 
+     function success(){ 
+ 		document.location.href='${createLink(controller:'task', 
+ 		action:'list')}'; 
+    } 
+    
+	</g:javascript>
+	<script type="text/javascript">
+    function changeId(id){ 
+    	var theId = id;
+ 		var theElement = document.getElementById("taskid");
+ 		theElement.value = id;
+ 		var modalElement = document.getElementById("DeleteModal")
+ 		$(modalElement).modal()
+ 		
+ 	} 
+</script>
 </head>
+
 
 <body>
 	
@@ -25,6 +43,8 @@
 			
 				<g:sortableColumn property="status" title="${message(code: 'task.status.label', default: 'Status')}" />
 				
+				<g:sortableColumn property="completed" title="${message(code: 'task.done.label', default: 'Completed')}" />
+				
 				<g:sortableColumn property="Delete" title="Delete" />
 			
 			</tr>
@@ -40,15 +60,24 @@
 				<td><g:formatDate date="${taskInstance.due}"/></td>
 			
 				<td>${fieldValue(bean: taskInstance, field: "status")}</td>
-								
+				
+				<td>
+					<g:if test="${taskInstance.status != "Done"}">
+						<g:set var="isChecked" value="${false}"/>
+					</g:if>
+					<g:else>
+						<g:set var="isChecked" value="${true}"/>
+					</g:else>
+						<g:checkBox name='done' value="${isChecked}" onclick="${remoteFunction(action:'toggleDone', id:taskInstance.id, params:'\'done=\' + this.checked',onSuccess:'success();')}" />
+				</td>
+												
 				<td>
 				<g:form>
-					<g:hiddenField name="taskid" value="${taskInstance.id}" />
-					<a href="#DeleteModal" role="button" class="" data-toggle="modal" title="${message(code: 'default.button.delete.label', default: 'Delete')}">
+					<g:hiddenField name="deletetaskid" value="${taskInstance.id}" />
+					<a href="#" onclick="changeId(${taskInstance.id})" role="button" class="" data-toggle="modal" title="${message(code: 'default.button.delete.label', default: 'Delete')}">
 						<i class="icon-trash icon-large"></i> Delete
 					</a>
-					<g:render template="/_common/modals/deleteDialog" model="[item: item]"/>
-					
+						
 				</g:form>					
 				</td>
 			
@@ -56,7 +85,7 @@
 		</g:each>
 		</tbody>
 	</table>
-	
+	<g:render template="/_common/modals/deleteDialog" model="[taskInstance: taskInstance]"/>
 	<div class="pagination">
 		<bs:paginate total="${taskInstanceTotal}" />
 	</div>

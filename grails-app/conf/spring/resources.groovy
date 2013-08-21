@@ -4,5 +4,5 @@ beans = {
 	
 	//Custom bean for task status
 	taskStatusValues(java.util.HashMap, [Started: 'Started',
-		  NotStarted: 'Not Started', OnHold: 'On Hold'])
+		  NotStarted: 'Not Started', OnHold: 'On Hold', Done: 'Done'])
 	}

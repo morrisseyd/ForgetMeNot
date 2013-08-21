@@ -54,6 +54,7 @@ class TaskTests {
 		creationDate : now,
 		due: now+10,
 		status:"Not Started", 
+		done:false,
 		user: userChuck
 		)
 		mockTask

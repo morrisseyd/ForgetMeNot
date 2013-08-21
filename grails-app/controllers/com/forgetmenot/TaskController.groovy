@@ -17,6 +17,9 @@ class TaskController {
 	def SpringSecurityService springSecurityService
 	def taskStatusValues
 	
+	
+	
+	
 	@Secured(['ROLE_USER','IS_AUTHENTICATED_FULLY'])
 	def scaffold = Task
 	
@@ -27,7 +30,31 @@ class TaskController {
 	 * used throughout the application. 
 	 */
 	def create = {		
-		[taskStatusValues: taskStatusValues]
+			[taskStatusValues: taskStatusValues]
+		
+	}
+	
+	
+	def update = {
+		Task taskInstance = Task.get(params.id)
+		taskInstance.status = params.status
+		taskInstance.due = Date.parse("d/M/yyyy", params.due)
+		taskInstance.description = params.description
+		taskInstance.save(flush:true)
+		[ taskInstance: taskInstance]
+		[ taskStatusValues: taskStatusValues]
+		redirect(action: "list")
+		
+	}
+
+	def show = {
+		Task taskInstance = Task.get(params.id)
+		render(view: "show", model: [ taskInstance: taskInstance, taskStatusValues: taskStatusValues])
+	}
+
+	def edit = {
+		Task taskInstance = Task.get(params.id)
+		render(view: "edit", model: [ taskInstance: taskInstance, taskStatusValues: taskStatusValues])
 	}
 	
 	/**
@@ -48,7 +75,8 @@ class TaskController {
 	 * specific tasks.
 	 */
 	def delete = {
-		def taskInstance = Task.findById(params.taskid.toLong())
+		
+		Task taskInstance = Task.get(params.taskid.toLong())
 		if (taskInstance) {
 			try {
 				taskInstance.delete(flush: true)
@@ -82,18 +110,47 @@ class TaskController {
 		loggedInUser = User.findByUsername(springSecurityService.principal.username)
 					
 		log.info "***loggedInUser is: ${loggedInUser}***"
-		
-		if(loggedInUser){
+			
+		if(loggedInUser!=null){
+			
 			log.info "***Setting current user and saving task***"
 			task.user = loggedInUser
 			task.creationDate = now
-			
-			task.save()
+			task.status = params.status
+			task.done = (task.status == "Done")?true:false
+			task.due = Date.parse("d/M/yyyy", params.due)
+			task.description = params.description
+						
+			task.save(flush:true,failOnError:true)
 		}
 		
 		//Redirect to the listview
 		redirect(action:list)
 		
 	}
+	
+	def toggleDone = {
+		def task = Task.get(params.id)
+		if (task){
+			
+			if (params.done=="true"){
+				
+				task.done = true
+				task.status = 'Done'
+			}else{
+				
+				task.done = false
+				task.status = 'Not Started'
+			}
+			
+			task.save()
+			//Redirect to the listview
+			
+			redirect(controller:"task", action:"list")
+			
+		}
+						
+	   }
+	   
 	
 }

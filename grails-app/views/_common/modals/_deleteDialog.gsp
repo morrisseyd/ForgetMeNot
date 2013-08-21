@@ -17,7 +17,7 @@ This is the standard dialog that initiates the delete action.
 <%--		<g:link action="delete" id="${params.id}" class="btn btn-danger">--%>
 <%--			<g:message code="default.button.delete.label" default="Delete"/>--%>
 <%--		</g:link>--%>
-			<g:hiddenField name="taskid" value="${item ? item.id : params.id}" />
+			<g:hiddenField name="taskid" value="${taskInstance ? taskInstance.id : params.id}" />
 			<span class="button"><g:actionSubmit class="btn btn-danger" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}"/></span>
 		</g:form>
 		
